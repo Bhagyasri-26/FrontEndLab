@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: lightblue;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 8px;
+            width: 85%;
+        }
+
+        button {
+            background: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Student Registration</h2>
+
+    <input type="text" id="name" placeholder="Enter Name"><br>
+    <input type="email" id="email" placeholder="Enter Email"><br>
+    <input type="password" id="password" placeholder="Enter Password"><br>
+
+    <button onclick="register()">Register</button>
+    <button onclick="login()">Login</button>
+
+    <p id="result"></p>
+</div>
+
+<script>
+    let student = {};
+
+    function register() {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        if (name == "" || email == "" || password == "") {
+            document.getElementById("result").innerHTML =
+                "Please fill all fields";
+        } else {
+            student.name = name;
+            student.email = email;
+            student.password = password;
+
+            document.getElementById("result").innerHTML =
+                "Registration Successful!";
+        }
+    }
+
+    function login() {
+        let email = prompt("Enter Email");
+        let password = prompt("Enter Password");
+
+        if (email == student.email &&
+            password == student.password &&
+            student.email) {
+
+            document.getElementById("result").innerHTML =
+                "Login Successful! Welcome " + student.name;
+        } else {
+            document.getElementById("result").innerHTML =
+                "Invalid Email or Password";
+        }
+    }
+</script>
+
+</body>
+</html>
